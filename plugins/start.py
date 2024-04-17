@@ -22,7 +22,7 @@ async def start_message(client: Client, message: Message):
                await client.send_message(
                    chat_id=message.chat.id,
                    text="Sorry Sir, You are Banned to use me. Contact my [Support Group](https://t.me/Bots_Universe).",
-                   parse_mode="markdown",
+                   #parse_mode="markdown",
                    disable_web_page_preview=True
                )
                return
@@ -36,15 +36,15 @@ async def start_message(client: Client, message: Message):
                             InlineKeyboardButton("Join Updates Channel", url=f"t.me/{BaseConfig.CHNL_NAME}")
                         ]
                     ]
-                ),
-                parse_mode="markdown"
+                )
+                #parse_mode="markdown"
             )
             return
         except Exception as e:
             await client.send_message(
                 chat_id= message.chat.id,
                 text=f"Something went Wrong. Contact my [Support Group](https://t.me/Bots_Universe).\nError: {e}",
-                parse_mode="markdown",
+                #parse_mode="markdown",
                 disable_web_page_preview=True)
             return
 
