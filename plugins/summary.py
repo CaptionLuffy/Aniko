@@ -1,7 +1,7 @@
 from http.client import EXPECTATION_FAILED
 from aniko import Aniko
 from matplotlib.image import thumbnail
-from pyrogram import Client, filters
+from pyrogram import Client, filters, enums
 from pyrogram.types import (
     Message, InlineKeyboardMarkup,
     InlineKeyboardButton
@@ -26,7 +26,7 @@ async def search(client: Client, message: Message):
                await client.send_message(
                    chat_id=message.chat.id,
                    text="Sorry Sir, You are Banned to use me. Contact my [Support Group](https://t.me/Bots_Universe).",
-                   parse_mode="markdown",
+                   parse_mode=enums.ParseMode.MARKDOWN,
                    disable_web_page_preview=True
                )
                return
@@ -41,14 +41,14 @@ async def search(client: Client, message: Message):
                         ]
                     ]
                 ),
-                parse_mode="markdown"
+                parse_mode=enums.ParseMode.MARKDOWN
             )
             return
         except Exception as e:
             await client.send_message(
                 chat_id= message.chat.id,
                 text=f"Something went Wrong. Contact my [Support Group](https://t.me/Bots_Universe).\nError: {e}",
-                parse_mode="markdown",
+                parse_mode=enums.ParseMode.MARKDOWN,
                 disable_web_page_preview=True)
             return
 
@@ -98,7 +98,7 @@ Bot By @Bots_universe
         return
     except PeerIdInvalid:
         await message.reply(f"PeerId Invalid add Channel Id `-100`\nNeed To Add It\nRedeploy Bot\nAnd Start\nTill then Bye\nBot Stopping..")
-        await client.send_message(1207066133, f"PeerId Invalid {datetime.now()} | Couldn't get the details for {message.chat.id}")
+        #await client.send_message(1, f"PeerId Invalid {datetime.now()} | Couldn't get the details for {message.chat.id}")
         await client.send_message(BaseConfig.OWNER_ID, f"PeerId Invalid {datetime.now()} | Couldn't get the details for {message.chat.id}")
         return
 
