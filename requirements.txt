@@ -9,3 +9,4 @@ matplotlib
 Flask
 gunicorn
 aiohttp
+lxml[html_clean]
