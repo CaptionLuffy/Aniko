@@ -6,3 +6,6 @@ bs4
 requests
 regex
 matplotlib
+Flask
+gunicorn
+aiohttp
